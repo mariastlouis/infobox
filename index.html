@@ -24,11 +24,11 @@
 	<h1><span class ="accent-color">idea</span>box </h1>
 
 	<label for="title-input">
-		<input id ="title-input" class="main-title header-input" type="text" placeholder ="Title">
+		<input id ="title-input" class="main-title input" type="text" placeholder ="Title">
 	</label> 
 
 	<label for="body-input">
-		<input id ="body-input" class="idea-input header-input" type="text" placeholder ="Body">
+		<input id ="body-input" class="idea-input input" type="text" placeholder ="Body">
 	</label>
 
 	<label for = "submit-button">
@@ -38,9 +38,32 @@
 
 	</header>
 
-	<main>
+	<main class="container">
 
-	<article>
+		<label for="search-input">
+		<input id ="search-input" class="search-box input" type="text" placeholder ="Search">
+		</label>
+
+	<article class="idea-article">
+		
+		<h2> Example idea 1</h2> 
+		
+
+			<img src ="images/delete.svg" class="icon-buttons delete-button right" />
+
+		
+		<p contenteditable="true" class="idea-paragraph">Lorum ipsum lorum ipsum lorum ipsum Lorum ipsum lorum ipsum lorum ipsum Lorum ipsum lorum ipsum lorum ipsum </p>
+		
+		
+		
+		<h3 class="quality-rank"> 
+			<img src ="images/upvote.svg" class ="icon-buttons upvote-button" />
+		<img src = "images/downvote.svg" class="icon-buttons downvote-button" />
+
+		quality: <span class = "quality-content"> swill</span> </h3>
+
+		<hr /> 
+		
 
 	</article>
 
