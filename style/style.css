@@ -1,3 +1,54 @@
+
 body {
-	background: red;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+h1 {
+	font-family: 'Roboto Slab', serif;
+	color: #6D6E71;
+	font-size: 22pt;
+	padding-top: 10px;
+}
+
+/*.h1div {
+	display: flex;
+	align-items: center;
+}*/
+
+/*header styles*/
+
+header {
+	background: #E5F3F2;
+	text-align: center;
+}
+
+.accent-color {
+	color: #00A79D;
+}
+
+.header-input {
+	width: 90%;
+	margin: 10px 10px 5px 10px;
+	height: 23px;
+}
+
+.idea-input {
+	height: 75px;
+}
+
+input::placeholder {
+font-size: 14pt;
+color: #CFD8DC;
+padding: 3px;
+}
+
+.button {
+	background: #00A79D;
+	color: #FFFFFF;	
+	border: none;
+	width: 90%;
+	margin: 10px;
+	height: 35px;
+
 }
