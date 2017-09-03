@@ -57,7 +57,7 @@ color: #CFD8DC;
 	color: #FFFFFF;	
 	border: none;
 	width: 85%;
-	margin: 10px;
+	margin: 10px 10px 20px 10px;
 	height: 35px;
 	font-size: 18px;
 
@@ -87,7 +87,7 @@ color: #CFD8DC;
 h2 {
 	
 	color: #6D6E71;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .idea-article {
@@ -98,7 +98,7 @@ h2 {
 }
 
 #search-input {
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 .icon-buttons {
@@ -118,9 +118,6 @@ h2 {
 
 .quality-rank {
 	display: inline;
-}
-
-h3 {
 	color: #6D6E71;
 	font-size: 10pt;
 }
@@ -128,11 +125,13 @@ h3 {
 .idea-paragraph {
 	color: #939598;
 	font-size: 12pt;
-	margin: 10px auto;
+	margin: 10px auto 20px auto;
+	
 }
 
 hr {
 	border: 1px solid #D1D3D4;
+	margin-top: 20px;
 } 
 
 @media only screen and (min-width: 800px){
@@ -143,8 +142,8 @@ main.container {
 }
 
 h1 {
-	font-size: 29pt;
-	margin-bottom: 15px;
+	font-size: 27pt;
+	margin-bottom: 20px;
 	padding-top: 18px;
 }
 
@@ -152,11 +151,11 @@ h1 {
 	font-size: 18px;
 	margin: 5px 15px;
 	width: 50%;
-	height: 25px;
+	height: 30px;
 }
 
 .idea-input {
-	height: 25px;
+	height: 30px;
 }
 
 .button {
