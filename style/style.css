@@ -36,18 +36,21 @@ header {
 .input {
 	width: 85%;
 	margin: 10px 10px 5px 10px;
-	height: 23px;
-	padding-right: 10px;
+	height: 33px;
+	padding: 10px 5px;
+	/*padding-right: 10px auto;*/
+	border: 2px solid #D1D3D4;
 }
 
 .idea-input {
-	height: 75px;
+	height: 78px;
 }
 
 input::placeholder {
-font-size: 14pt;
+font-size: 13pt;
 color: #CFD8DC;
 }
+
 
 .button {
 	background: #00A79D;
@@ -56,7 +59,12 @@ color: #CFD8DC;
 	width: 85%;
 	margin: 10px;
 	height: 35px;
+	font-size: 18px;
 
+}
+
+.button:hover {
+	background: #045E55;
 }
 
 /*main container styles*/
@@ -135,24 +143,25 @@ main.container {
 }
 
 h1 {
-	font-size: 35pt;
+	font-size: 29pt;
 	margin-bottom: 15px;
-	padding-top: 32px;
+	padding-top: 18px;
 }
 
 .input {
-	font-size: 32px;
-	margin: 15px 15px;
+	font-size: 18px;
+	margin: 5px 15px;
 	width: 50%;
+	height: 25px;
 }
 
 .idea-input {
-	height: 18px;
+	height: 25px;
 }
 
 .button {
-	font-size: 18px;
-	height: 25px;
+	font-size: 17px;
+	height: 28px;
 	width: 50%;
 }
 
