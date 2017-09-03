@@ -1,4 +1,8 @@
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
@@ -17,10 +21,6 @@ font-family: 'Roboto Slab', serif;
 }
 
 
-/*.h1div {
-	display: flex;
-	align-items: center;
-}*/
 
 /*header styles*/
 
@@ -34,9 +34,10 @@ header {
 }
 
 .input {
-	width: 90%;
+	width: 85%;
 	margin: 10px 10px 5px 10px;
 	height: 23px;
+	padding-right: 10px;
 }
 
 .idea-input {
@@ -46,14 +47,13 @@ header {
 input::placeholder {
 font-size: 14pt;
 color: #CFD8DC;
-padding: 3px;
 }
 
 .button {
 	background: #00A79D;
 	color: #FFFFFF;	
 	border: none;
-	width: 90%;
+	width: 85%;
 	margin: 10px;
 	height: 35px;
 
@@ -76,7 +76,6 @@ padding: 3px;
 }
 
 
-
 h2 {
 	
 	color: #6D6E71;
@@ -84,8 +83,8 @@ h2 {
 }
 
 .idea-article {
-	width: 90%;
-	margin: 20px;
+	width: 85%;
+	margin: 20px auto;
 	padding-top: 5px;
 	text-align: left;
 }
@@ -103,6 +102,7 @@ h2 {
 
 .delete-button {
 	margin-top: -20px;
+	margin-right: 20px;
 }
 .delete-button:hover {
 
@@ -127,11 +127,16 @@ hr {
 	border: 1px solid #D1D3D4;
 } 
 
-@media only screen and (min-width: 650px;){
+@media only screen and (min-width: 800px){
 
-h1{
-	font-size: 90pt;
-	margin-bottom: 60px;
+
+main.container {
+	text-align: center;
+}
+
+h1 {
+	font-size: 35pt;
+	margin-bottom: 15px;
 	padding-top: 32px;
 }
 
@@ -141,13 +146,21 @@ h1{
 	width: 50%;
 }
 
-button {
-	font-size: 30px;
-	height: 50px;
+.idea-input {
+	height: 18px;
+}
+
+.button {
+	font-size: 18px;
+	height: 25px;
 	width: 50%;
 }
 
-
+.idea-article {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 
