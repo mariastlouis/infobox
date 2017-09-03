@@ -57,7 +57,7 @@ color: #CFD8DC;
 	color: #FFFFFF;	
 	border: none;
 	width: 85%;
-	margin: 10px;
+	margin: 10px 10px 20px 10px;
 	height: 35px;
 	font-size: 18px;
 
@@ -87,7 +87,7 @@ color: #CFD8DC;
 h2 {
 	
 	color: #6D6E71;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .idea-article {
@@ -98,29 +98,49 @@ h2 {
 }
 
 #search-input {
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 .icon-buttons {
 	height: 25px;
 	width: 25px;
-	display: inline;
+	/*display: inline;*/
 	margin-right: 15px;
+}
+
+.delete-button-div {
+	
+	background:url('../images/delete.svg');
+}
+
+.delete-button-div:hover {
+	background: url('../images/delete-hover.svg');
 }
 
 .delete-button {
 	margin-top: -20px;
 	margin-right: 20px;
 }
-.delete-button:hover {
 
+.upvote-button-div {
+	background: url('../images/upvote.svg') 0 0 no-repeat;
+}
+
+.upvote-button-div:hover {
+	background:url('../images/upvote-hover.svg') 0 0 no-repeat;
+}
+
+.downvote-button-div {
+	background: url('../images/downvote.svg');
+}
+
+.downvote-button-div:hover {
+	background: url('../images/downvote-hover.svg');
 }
 
 .quality-rank {
-	display: inline;
-}
-
-h3 {
+	display: flex;
+	flex-direction: row;
 	color: #6D6E71;
 	font-size: 10pt;
 }
@@ -128,11 +148,13 @@ h3 {
 .idea-paragraph {
 	color: #939598;
 	font-size: 12pt;
-	margin: 10px auto;
+	margin: 10px auto 20px auto;
+	
 }
 
 hr {
 	border: 1px solid #D1D3D4;
+	margin-top: 20px;
 } 
 
 @media only screen and (min-width: 800px){
@@ -143,8 +165,8 @@ main.container {
 }
 
 h1 {
-	font-size: 29pt;
-	margin-bottom: 15px;
+	font-size: 27pt;
+	margin-bottom: 20px;
 	padding-top: 18px;
 }
 
@@ -152,11 +174,11 @@ h1 {
 	font-size: 18px;
 	margin: 5px 15px;
 	width: 50%;
-	height: 25px;
+	height: 30px;
 }
 
 .idea-input {
-	height: 25px;
+	height: 30px;
 }
 
 .button {
