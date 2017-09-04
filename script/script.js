@@ -28,13 +28,18 @@ function saveIdea (e) {
 }
 
 $('.bookmark-list').on('click', '.delete-button-div', function() {
-	console.log('work')
 	$(this).closest('.idea-article').remove();
 });
 
-// function deleteIdea(e){
-// 	e.preventDefault();
-// 	if    $(this).closest
-// 	console.log("work");
-// }
+$('.bookmark-list').on('click', '.upvote-button-div', function() {
+	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'genius' : 'plausible');
+});
+
+$('.bookmark-list').on('click', '.downvote-button-div', function() {
+	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'plausible' : 'genius');
+});
+
+
+
+
 
