@@ -8,6 +8,7 @@ function saveIdea (e) {
 	e.preventDefault();
 	var title = $('.main-title').val();
 	var body = $('.idea-input').val();
+	var status = 'swill';
 	
 	$('.bookmark-list').prepend(
 		`<article class="idea-article">
@@ -20,7 +21,7 @@ function saveIdea (e) {
 		</div>
 		<div class="downvote-button-div icon-buttons downvote-button"> 
 		</div>
-		quality: <span class = "quality-content"> swill</span> </div>
+		<p> quality: <span class = "quality-content">${status}</span> </p> </div>
 		<hr /> 
 		</article>`)
 	$('.main-title').val("");
@@ -41,12 +42,23 @@ $('.bookmark-list').on('click', '.delete-button-div', function() {
 	
 // });
 
-$('.idea-article').on('click', '.upvote-button-div', function() {
-	 	if ($('.quality-content').text() == 'swill'); {
-     	return $('.quality-content').text('plausible');
-    }; else { ($('.quality-content').text() == 'plausible');
-                    $('.quality-content').text('genius');
-	};
+$('.bookmark-list').on('click', '.upvote-button-div', function() {
+	 	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
+	 	if (checkStatus === 'swill') {
+     	$(this).closest('.quality-rank').find('.quality-content').text('plausible');
+     	} else {
+     		$(this).closest('.quality-rank').find('.quality-content').text('genius');
+     	}
+	});
+
+$('.bookmark-list').on('click', '.downvote-button-div', function() {
+  var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
+  if (checkStatus === 'genius') {
+    $(this).closest('.quality-rank').find('.quality-content').text('plausible');
+  } else {
+  	$(this).closest('.quality-rank').find('.quality-content').text('swill');
+  }
+});
 
 // };
                 
