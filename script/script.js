@@ -28,13 +28,35 @@ function saveIdea (e) {
 }
 
 $('.bookmark-list').on('click', '.delete-button-div', function() {
-	console.log('work')
 	$(this).closest('.idea-article').remove();
 });
 
-// function deleteIdea(e){
-// 	e.preventDefault();
-// 	if    $(this).closest
-// 	console.log("work");
-// }
+// $('.bookmark-list').on('click', '.upvote-button-div', function() {
+// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'genius' : 'plausible');
+	
+// });
+
+// $('.bookmark-list').on('click', '.downvote-button-div', function() {
+// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'swill' : 'swill');
+	
+// });
+
+$('.bookmark-list').on('click', '.upvote-button-div', function() {
+	 	if ($('.quality-content').text() == 'swill'); {
+     	return $('.quality-content').text('plausible');
+    }; else { ($('.quality-content').text() == 'plausible');
+                    $('.quality-content').text('genius');
+	};
+
+};
+                
+
+
+
+
+
+
+
+
+
 
