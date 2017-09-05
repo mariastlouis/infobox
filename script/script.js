@@ -41,14 +41,14 @@ $('.bookmark-list').on('click', '.delete-button-div', function() {
 	
 // });
 
-$('.bookmark-list').on('click', '.upvote-button-div', function() {
+$('.idea-article').on('click', '.upvote-button-div', function() {
 	 	if ($('.quality-content').text() == 'swill'); {
      	return $('.quality-content').text('plausible');
     }; else { ($('.quality-content').text() == 'plausible');
                     $('.quality-content').text('genius');
 	};
 
-};
+// };
                 
 
 
