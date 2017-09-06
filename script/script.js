@@ -14,7 +14,15 @@
 
 // on page load display objects
 
+$(document).ready(function() {
+    getIdea();
+    console.log(getIdea())
+});
 
+function loopData (array) {
+
+
+}
 
 var ideaArray = [];
 
@@ -33,35 +41,30 @@ function Idea (title, body, status ) {
 	this.id = Date.now();
 }
 
-function addIdea () {
-	console.log('hello')
+function addIdea (e) {
+	e.preventDefault();
 	var title = $('.main-title').val();
 	var body = $('.idea-input').val();
 	var status = 'swill';
 	var anotherIdea = new Idea(title, body, status);
-	saveIdea(anotherIdea);
+	prependIdea(anotherIdea);
 	ideaArray.push(anotherIdea)
 	storeIdea();
 }
 
-function saveIdea (e) {
-	e.preventDefault();
-	// var title = $('.main-title').val();
-	// var body = $('.idea-input').val();
-	// var status = 'swill';
-	
+function prependIdea (idea) {
 	$('.bookmark-list').prepend(
 		`<article class="idea-article">
-		<h2 class="idea-title">${title}</h2> 
+		<h2 class="idea-title">${idea.title}</h2> 
 		<div class="delete-button-div icon-buttons delete-button right">
 		</div>
-		<p contenteditable="true" class="idea-paragraph">${body}</p>
+		<p contenteditable="true" class="idea-paragraph">${idea.body}</p>
 		<div class="quality-rank"> 
 		<div class="upvote-button-div icon-buttons upvote-button">
 		</div>
 		<div class="downvote-button-div icon-buttons downvote-button"> 
 		</div>
-		<p> quality: <span class = "quality-content">${status}</span> </p> </div>
+		<p> quality: <span class = "quality-content">${idea.status}</span> </p> </div>
 		<hr /> 
 		</article>`)
 	$('.main-title').val("");
@@ -78,8 +81,13 @@ function storeIdea () {
 }
 
 function getIdea () {
-	var retrieveIdea = JSON.parse(ideaArray);
-	return retrieveIdea;
+	var retrieveIdea = JSON.parse(localStorage.getItem("ideaArray"));
+
+	if (retrieveIdea ) {
+		return retrieveIdea;
+	} else {
+		return [];
+	}
 }
 
 
