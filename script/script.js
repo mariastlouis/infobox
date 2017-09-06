@@ -1,13 +1,32 @@
-var ideaArray = [];
-var title = $('.main-title').val();
-	var body = $('.idea-input').val();
-	var status = 'swill';
+// create an empty array to fill with objects 
 
-$('#submit-button').on('click', saveIdea);
+// create an object
+
+// fill the object with info from page
+
+// display the object on the page 
+
+// store the object in local storage
+
+// parse items
+
+// get objects 
+
+// on page load display objects
+
+
+
+var ideaArray = [];
+
+// var title = $('.main-title').val();
+// 	var body = $('.idea-input').val();
+// 	var status = 'swill';
+
+$('#submit-button').on('click', addIdea);
 // $('.idea-article').on('click', deleteIdea);
 
 
-function Idea (title, body ) {
+function Idea (title, body, status ) {
 	this.title = title;
 	this.body = body; 
 	this.status = 'swill'; 
@@ -15,12 +34,13 @@ function Idea (title, body ) {
 }
 
 function addIdea () {
-	// var title = $('.main-title').val();
-	// var body = $('.idea-input').val();
-	// var status = 'swill';
-	var anotherIdea = new Idea (title, body, status);
+	console.log('hello')
+	var title = $('.main-title').val();
+	var body = $('.idea-input').val();
+	var status = 'swill';
+	var anotherIdea = new Idea(title, body, status);
 	saveIdea(anotherIdea);
-	ideaArray.push(antherIdea)
+	ideaArray.push(anotherIdea)
 	storeIdea();
 }
 
@@ -62,21 +82,7 @@ function getIdea () {
 	return retrieveIdea;
 }
 
-// create an empty array to fill with objects 
 
-// create an object
-
-// fill the object with info from page
-
-// display the object on the page 
-
-// store the object in local storage
-
-// parse items
-
-// get objects 
-
-// on page load display objects
 
  
 
