@@ -15,7 +15,6 @@
 // on page load display objects
 
 $(document).ready(function() {
-   // console.log(localStorage)
 getStoredCards()
 
 });
@@ -61,7 +60,6 @@ var keys = Object.keys(localStorage)
 console.log(keys)
 
 keys.forEach(function(key){
-console.log(key)
 localStorage[key]
 prependIdea(JSON.parse(localStorage[key]))
 })
@@ -88,7 +86,7 @@ function addIdea (e) {
 
 function prependIdea (idea) {
 	$('.bookmark-list').prepend(
-		`<article class="idea-article">
+		`<article id=${idea.id} class="idea-article">
 		<h2 class="idea-title">${idea.title}</h2> 
 		<div class="delete-button-div icon-buttons delete-button right">
 		</div>
@@ -107,6 +105,8 @@ function prependIdea (idea) {
 
 $('.bookmark-list').on('click', '.delete-button-div', function() {
 	$(this).closest('.idea-article').remove();
+	localStorage.removeItem(($(this).closest('.idea-article').attr('id')));
+	// localStorage.removeItem('');
 });
 
 
