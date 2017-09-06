@@ -116,26 +116,6 @@ function storeIdea (id, card) {
 
 
 
-
-
- 
-
-
-
-
-
-
-
-// $('.bookmark-list').on('click', '.upvote-button-div', function() {
-// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'genius' : 'plausible');
-	
-// });
-
-// $('.bookmark-list').on('click', '.downvote-button-div', function() {
-// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'swill' : 'swill');
-	
-// });
-
 $('.bookmark-list').on('click', '.upvote-button-div', function() {
 	 	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
 	 	if (checkStatus === 'swill') {
