@@ -15,16 +15,32 @@
 // on page load display objects
 
 $(document).ready(function() {
-    getIdea();
-    console.log(getIdea())
+    // getIdea();
+    loopData();
 });
 
-function loopData (array) {
 
+function loopData (array) {
+var ideaArray = getIdea();
+
+ideaArray.forEach (function () {
+
+
+	
+}) 
+}
+
+console.log(ideaArray)
+
+// array.forEach(function () {
+
+
+
+// })
 
 }
 
-var ideaArray = [];
+
 
 // var title = $('.main-title').val();
 // 	var body = $('.idea-input').val();
