@@ -15,39 +15,56 @@
 // on page load display objects
 
 $(document).ready(function() {
-    // getIdea();
-    loopData();
+   // console.log(localStorage)
+getStoredCards()
+
 });
 
 
-function loopData (array) {
-var ideaArray = getIdea();
-
-ideaArray.forEach (function () {
-
-
+function getIdea (id) {
 	
-}) 
+	var retrieveIdea = JSON.parse(localStorage.getItem(id));
+
+	if (retrieveIdea ) {
+		return retrieveIdea;
+	} else {
+		return [];
+	}
 }
 
-console.log(ideaArray)
-
-// array.forEach(function () {
-
-
-
-// })
+function getStoredCards () {
+	var getCards = getIdea();
+	console.log(getCards)
 
 }
 
+// function getStoredCards() {
+//     var retrievedCards = JSON.parse(localStorage.getItem("storedCards")) || [];
+//     retrievedCards.forEach(function (retrievedCard) {
+//         var ideaCard = new IdeaCard(retrievedCard.title, retrievedCard.idea, retrievedCard.id, retrievedCard.quality);
+//         $('section').append(populateCard(ideaCard)); 
+//     });
+// }`
 
 
-// var title = $('.main-title').val();
-// 	var body = $('.idea-input').val();
-// 	var status = 'swill';
+// get local storage
+//iterate over it
+// get cards
+// append cards
+
+
 
 $('#submit-button').on('click', addIdea);
 // $('.idea-article').on('click', deleteIdea);
+
+var keys = Object.keys(localStorage)
+console.log(keys)
+
+keys.forEach(function(key){
+console.log(key)
+localStorage[key]
+prependIdea(JSON.parse(localStorage[key]))
+})
 
 
 function Idea (title, body, status ) {
@@ -64,8 +81,9 @@ function addIdea (e) {
 	var status = 'swill';
 	var anotherIdea = new Idea(title, body, status);
 	prependIdea(anotherIdea);
-	ideaArray.push(anotherIdea)
-	storeIdea();
+	// console.log(anotherIdea.id)
+	// ideaArray.push(anotherIdea)
+	storeIdea(anotherIdea.id, anotherIdea);
 }
 
 function prependIdea (idea) {
@@ -92,19 +110,11 @@ $('.bookmark-list').on('click', '.delete-button-div', function() {
 });
 
 
-function storeIdea () {
-	localStorage.setItem("ideaArray", JSON.stringify(ideaArray));
+function storeIdea (id, card) {
+	localStorage.setItem(id, JSON.stringify(card));
 }
 
-function getIdea () {
-	var retrieveIdea = JSON.parse(localStorage.getItem("ideaArray"));
 
-	if (retrieveIdea ) {
-		return retrieveIdea;
-	} else {
-		return [];
-	}
-}
 
 
 
