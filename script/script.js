@@ -26,31 +26,12 @@ function enabledBtn() {
       $('#submit-button').attr("disabled", false);
     }
 }
-
-// function getStoredCards () {
-// 	var getCards = getIdea();
-
-// }
-
-// function getStoredCards() {
-//     var retrievedCards = JSON.parse(localStorage.getItem("storedCards")) || [];
-//     retrievedCards.forEach(function (retrievedCard) {
-//         var ideaCard = new IdeaCard(retrievedCard.title, retrievedCard.idea, retrievedCard.id, retrievedCard.quality);
-//         $('section').append(populateCard(ideaCard)); 
-//     });
-// }`
-
-
-// get local storage
-//iterate over it
-// get cards
-// append cards
-
-
-
 $('#submit-button').on('click', addIdea);
-// $('.idea-article').on('click', deleteIdea);
-
+$('#submit-button').on('click', disableSubmit);
+function disableSubmit () {
+    $('#submit-button').attr('disabled', true)
+}
+	
 var keys = Object.keys(localStorage)
 
 keys.forEach(function(key){
@@ -98,7 +79,7 @@ function prependIdea (idea) {
 $('.bookmark-list').on('click', '.delete-button-div', function() {
 	$(this).closest('.idea-article').remove();
 	localStorage.removeItem(($(this).closest('.idea-article').attr('id')));
-	// localStorage.removeItem('');
+
 });
 
 
@@ -107,9 +88,7 @@ function storeIdea (id, card) {
 }
 
 $('.main-title', '.idea-input').on('keyup', function (e) {
-	// if ($('.main-title').val() && $('.idea-input').val()){
-	// 	$('.enterButton').prop('disabled', false);
-	// }
+	
 	if (e.keyCode === 13 && ($('.main-title').val() && $('.idea-input').val())){
 		addIdea(e)
 	}
@@ -184,9 +163,8 @@ function realtimeSearch() {
     var searchTerm = $('.search-box').val().toUpperCase();
     console.log(searchTerm);
     $('.idea-article').each ( function (index, element) {
-		// console.log(element);
+
 	if (doYouMatch(searchTerm, index)) {
-            // console.log('something')
             $(element).removeClass('card-display-none');
         } else {
             $(element).addClass('card-display-none');
@@ -208,8 +186,6 @@ var upperCaseTitle = title.toUpperCase();
 var body = $($('.idea-paragraph')[index]).html();
 var upperCaseBody = body.toUpperCase();
 
-// console.log(title)
-// console.log(body)
 
 if (upperCaseTitle.indexOf(searchTerm) !== -1) {
 	return true;
