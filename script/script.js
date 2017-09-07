@@ -187,39 +187,45 @@ localStorage.setItem(id, JSON.stringify(uniqueCard));
 
 function realtimeSearch() {
     var searchTerm = $('.search-box').val().toUpperCase();
-    $.each($('.idea-article'), function (index, element) {
+    console.log(searchTerm);
+    $('.idea-article').each ( function (index, element) {
 		// console.log(element);
-	if (doYouMatch(searchTerm)) {
+	if (doYouMatch(searchTerm, index)) {
+            // console.log('something')
             $(element).removeClass('card-display-none');
         } else {
             $(element).addClass('card-display-none');
+           
         };
 
-    })
+   })
 };
 
 
-//     $('.idea-article').each(function (index, element) {
-        
-//     });
-// });
-// }
+
 
 $('.search-box').on('keyup', realtimeSearch)
 
- function doYouMatch (searchTerm) {
+ function doYouMatch (searchTerm, index) {
     
-var title = ($(this).closest('.idea-article').get('.idea-title').text();
-console.log(title)
+var title = $($('.idea-title')[index]).html();
+var upperCaseTitle = title.toUpperCase();
+var body = $($('.idea-paragraph')[index]).html();
+var upperCaseBody = body.toUpperCase();
 
+// console.log(title)
+// console.log(body)
 
-    // if (this.title.toUpperCase().includes(searchTerm) || this.body.toUpperCase().includes(searchTerm)) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
+if (upperCaseTitle.indexOf(searchTerm) !== -1) {
+	return true;
+}
+ else if (upperCaseBody.indexOf(searchTerm) !== -1){
+ 	return true;
+ } else {
+        return false
+    };
+
 };
-
 
 
 
