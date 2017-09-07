@@ -61,6 +61,7 @@ console.log(keys)
 
 keys.forEach(function(key){
 localStorage[key]
+console.log(localStorage[key])
 prependIdea(JSON.parse(localStorage[key]))
 })
 
@@ -106,7 +107,15 @@ function prependIdea (idea) {
 $('.bookmark-list').on('click', '.delete-button-div', function() {
 	$(this).closest('.idea-article').remove();
 	localStorage.removeItem(($(this).closest('.idea-article').attr('id')));
-	// localStorage.removeItem('');
+});
+
+$('#search-input').on('keyup', function() {
+	var searchTitle = ['.idea-title'];
+	var searchBody = ['#body-input'];
+	var searched = searchTitle.sort();
+		console.log('go')
+
+
 });
 
 
