@@ -1,18 +1,5 @@
-// create an empty array to fill with objects 
-
-// create an object
-
-// fill the object with info from page
-
-// display the object on the page 
-
-// store the object in local storage
-
-// parse items
-
-// get objects 
-
-// on page load display objects
+$('.idea-input').keyup(enabledBtn);
+$('.main-title').keyup(enabledBtn);
 
 $(document).ready(function() {
 // getStoredCards()
@@ -30,6 +17,14 @@ function getIdea (id) {
 	} else {
 		return [];
 	}
+}
+
+function enabledBtn() {
+    if ( $('.idea-input').val() === "" && $('.main-title').val() === "") {
+      $('#submit-button').attr("disabled", true)
+    } else {
+      $('#submit-button').attr("disabled", false);
+    }
 }
 
 // function getStoredCards () {
