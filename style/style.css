@@ -157,6 +157,10 @@ hr {
 	margin-top: 20px;
 } 
 
+.card-display-none {
+	display: none;
+}
+
 @media only screen and (min-width: 800px){
 
 
