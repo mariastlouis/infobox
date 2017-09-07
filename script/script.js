@@ -140,6 +140,7 @@ $('.bookmark-list').on('click', '.upvote-button-div', function() {
      	}
 	});
 
+
 $('.bookmark-list').on('click', '.downvote-button-div', function() {
   	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
   	var id = ($(this).closest('.idea-article').attr('id'));
@@ -157,44 +158,35 @@ $('.bookmark-list').on('click', '.downvote-button-div', function() {
   }
 });
 
-$('.bookmark-list').on('keyup', '.idea-title', function() {
-var id = ($(this).closest('.idea-article').attr('id'));
-var uniqueCard = JSON.parse(localStorage.getItem(id));
-uniqueCard.title = $(this).text();
-localStorage.setItem(id, JSON.stringify(uniqueCard));
-});
+$('.bookmark-list').on('keyup', '.idea-paragraph', editBody);
 
-$('.bookmark-list').on('keyup', '.idea-paragraph', function() {
+function editBody(event) {
 var id = ($(this).closest('.idea-article').attr('id'));
 var uniqueCard = JSON.parse(localStorage.getItem(id));
+if (event.keyCode === 13) {
+	event.preventDefault();
+	this.blur();
+}
 uniqueCard.body = $(this).text();
 localStorage.setItem(id, JSON.stringify(uniqueCard));
-});
+}
 
-// $(document).on('blur', '.idea-title', editCardTitle);
 
-// $(document).on('blur', '.idea-paragraph', editCardBody);
+$('.bookmark-list').on('keyup', '.idea-title', editTitle);
 
-// function editCardTitle(event){
-//   event.preventDefault();
-//   var articleElement = $(event.target).closest('article')
-//   var id = ($(this).closest('.idea-article').attr('id'));
-//   var card = Idea.find(id);
-//   card.title = $(event.target).text();
-//   card.save();
-// }
+function editTitle (event){
+var id = ($(this).closest('.idea-article').attr('id'));
+var uniqueCard = JSON.parse(localStorage.getItem(id));
+if (event.keyCode === 13) {
+	event.preventDefault();
+	this.blur();
+}
+uniqueCard.title = $(this).text();
+localStorage.setItem(id, JSON.stringify(uniqueCard));
+}
 
-// function editCardBody(event){
-//   event.preventDefault();
-//   var articleElement = $(event.target).closest('article')
-//   var id = ($(this).closest('.idea-article').attr('id'));
-//   var card = Idea.find(id);
-//   card.body = $(event.target).text();
-//   card.save();
-// }
 
-// };
-                
+
 
 
 
