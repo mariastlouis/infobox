@@ -116,41 +116,38 @@ function storeIdea (id, card) {
 
 
 
-
-
- 
-
-
-
-
-
-
-
-// $('.bookmark-list').on('click', '.upvote-button-div', function() {
-// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'genius' : 'plausible');
-	
-// });
-
-// $('.bookmark-list').on('click', '.downvote-button-div', function() {
-// 	$('.quality-content').text(($('.quality-content').text() == 'swill') ? 'swill' : 'swill');
-	
-// });
-
 $('.bookmark-list').on('click', '.upvote-button-div', function() {
 	 	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
+	 	var id = ($(this).closest('.idea-article').attr('id'));
+	 	var uniqueCard = JSON.parse(localStorage.getItem(id));
+
 	 	if (checkStatus === 'swill') {
+     	
      	$(this).closest('.quality-rank').find('.quality-content').text('plausible');
+     	uniqueCard.status = 'plausible';
+		localStorage.setItem(id, JSON.stringify(uniqueCard));
+
      	} else {
      		$(this).closest('.quality-rank').find('.quality-content').text('genius');
+     		uniqueCard.status = 'genius';
+     		localStorage.setItem(id, JSON.stringify(uniqueCard));
      	}
 	});
 
 $('.bookmark-list').on('click', '.downvote-button-div', function() {
-  var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
+  	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
+  	var id = ($(this).closest('.idea-article').attr('id'));
+	var uniqueCard = JSON.parse(localStorage.getItem(id));
+
+
   if (checkStatus === 'genius') {
-    $(this).closest('.quality-rank').find('.quality-content').text('plausible');
+	$(this).closest('.quality-rank').find('.quality-content').text('plausible');
+	uniqueCard.status = 'plausible';
+	localStorage.setItem(id, JSON.stringify(uniqueCard));
   } else {
   	$(this).closest('.quality-rank').find('.quality-content').text('swill');
+  	uniqueCard.status = 'swill';
+	localStorage.setItem(id, JSON.stringify(uniqueCard));
   }
 });
 
