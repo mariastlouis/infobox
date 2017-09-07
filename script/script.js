@@ -15,7 +15,8 @@
 // on page load display objects
 
 $(document).ready(function() {
-getStoredCards()
+// getStoredCards()
+getIdea();
 
 });
 
@@ -31,11 +32,10 @@ function getIdea (id) {
 	}
 }
 
-function getStoredCards () {
-	var getCards = getIdea();
-	console.log(getCards)
+// function getStoredCards () {
+// 	var getCards = getIdea();
 
-}
+// }
 
 // function getStoredCards() {
 //     var retrievedCards = JSON.parse(localStorage.getItem("storedCards")) || [];
@@ -57,7 +57,6 @@ $('#submit-button').on('click', addIdea);
 // $('.idea-article').on('click', deleteIdea);
 
 var keys = Object.keys(localStorage)
-console.log(keys)
 
 keys.forEach(function(key){
 localStorage[key]
@@ -79,15 +78,13 @@ function addIdea (e) {
 	var status = 'swill';
 	var anotherIdea = new Idea(title, body, status);
 	prependIdea(anotherIdea);
-	// console.log(anotherIdea.id)
-	// ideaArray.push(anotherIdea)
 	storeIdea(anotherIdea.id, anotherIdea);
 }
 
 function prependIdea (idea) {
 	$('.bookmark-list').prepend(
 		`<article id=${idea.id} class="idea-article">
-		<h2 class="idea-title">${idea.title}</h2> 
+		<h2 class="idea-title" contenteditable=true >${idea.title}</h2> 
 		<div class="delete-button-div icon-buttons delete-button right">
 		</div>
 		<p contenteditable="true" class="idea-paragraph">${idea.body}</p>
@@ -114,6 +111,15 @@ function storeIdea (id, card) {
 	localStorage.setItem(id, JSON.stringify(card));
 }
 
+$('.main-title', '.idea-input').on('keyup', function (e) {
+	// if ($('.main-title').val() && $('.idea-input').val()){
+	// 	$('.enterButton').prop('disabled', false);
+	// }
+	if (e.keyCode === 13 && ($('.main-title').val() && $('.idea-input').val())){
+		addIdea(e)
+	}
+
+});
 
 
 $('.bookmark-list').on('click', '.upvote-button-div', function() {
@@ -150,6 +156,42 @@ $('.bookmark-list').on('click', '.downvote-button-div', function() {
 	localStorage.setItem(id, JSON.stringify(uniqueCard));
   }
 });
+
+$('.bookmark-list').on('keyup', '.idea-title', function() {
+var id = ($(this).closest('.idea-article').attr('id'));
+var uniqueCard = JSON.parse(localStorage.getItem(id));
+uniqueCard.title = $(this).text();
+localStorage.setItem(id, JSON.stringify(uniqueCard));
+});
+
+$('.bookmark-list').on('keyup', '.idea-paragraph', function() {
+var id = ($(this).closest('.idea-article').attr('id'));
+var uniqueCard = JSON.parse(localStorage.getItem(id));
+uniqueCard.body = $(this).text();
+localStorage.setItem(id, JSON.stringify(uniqueCard));
+});
+
+// $(document).on('blur', '.idea-title', editCardTitle);
+
+// $(document).on('blur', '.idea-paragraph', editCardBody);
+
+// function editCardTitle(event){
+//   event.preventDefault();
+//   var articleElement = $(event.target).closest('article')
+//   var id = ($(this).closest('.idea-article').attr('id'));
+//   var card = Idea.find(id);
+//   card.title = $(event.target).text();
+//   card.save();
+// }
+
+// function editCardBody(event){
+//   event.preventDefault();
+//   var articleElement = $(event.target).closest('article')
+//   var id = ($(this).closest('.idea-article').attr('id'));
+//   var card = Idea.find(id);
+//   card.body = $(event.target).text();
+//   card.save();
+// }
 
 // };
                 
