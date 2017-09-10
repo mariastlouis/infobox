@@ -2,7 +2,7 @@ $('.idea-input').keyup(enabledBtn);
 $('.main-title').keyup(enabledBtn);
 
 $(document).ready(function() {
-// getStoredCards()
+
 getIdea();
 
 });
@@ -37,7 +37,7 @@ var keys = Object.keys(localStorage)
 keys.forEach(function(key){
 localStorage[key]
 prependIdea(JSON.parse(localStorage[key]))
-})
+});
 
 
 function Idea (title, body, status ) {
@@ -87,19 +87,20 @@ function storeIdea (id, card) {
 	localStorage.setItem(id, JSON.stringify(card));
 }
 
-$('.main-title', '.idea-input').on('keyup', function (e) {
+// $('.main-title', '.idea-input').on('keyup', function (e) {
 	
-	if (e.keyCode === 13 && ($('.main-title').val() && $('.idea-input').val())){
-		addIdea(e)
-	}
+// 	if (e.keyCode === 13 && ($('.main-title').val() && $('.idea-input').val())){
+// 		addIdea(e)
+// 	}
 
-});
+// });
 
 
 $('.bookmark-list').on('click', '.upvote-button-div', function() {
 	 	var checkStatus = $(this).closest('.quality-rank').find('.quality-content').text();
 	 	var id = ($(this).closest('.idea-article').attr('id'));
 	 	var uniqueCard = JSON.parse(localStorage.getItem(id));
+	 	
 
 	 	if (checkStatus === 'swill') {
      	
